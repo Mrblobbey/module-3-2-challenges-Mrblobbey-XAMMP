@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="/Rody's Game Store/BestelPagina/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="/Rody's Game Store/index.html">
+        <img src="/Week 3 WEB/Workshop 2/img/logoRodysGame.png" alt="homeLogo" id="headerlogo">
+        </a>
+        <input type="text" placeholder="Search..">
+    </header>
+    <nav>
+        <a href="/Rody's Game Store/index.html">Home</a>
+        <a href="/Rody's Game Store/index.html">Games</a>
+        <a href="/Rody's Game Store/Consoles/index.html">Console's</a>
+        <a href="/Rody's Game Store/GamerAccessories/index.html">Gamer Accessories</a>
+        <a href="/Rody's Game Store/Deals/index.html">Deals</a>                
+    </nav>
+    <div id="container">
+        <div id="orderFrom">
+            <h1>Your Details</h1>
+            <h2>What should appear on the invoice? </h2>
+            
+            <div class="form-group">
+                <label for="type">Order Type</label>
+                  <label for="part">Private</label>
+                  <input type="radio" id="part" name="typebestelling" value="part">
+                  <label for="zak">Business</label>
+                  <input type="radio" id="zak" name="typebestelling" value="zak">
+            </div>
+
+            <div class="form-group">
+                <label for="type">Salutation:</label>
+                  <label for="dhr">Mr.</label>
+                  <input type="radio" id="dhr" name="aanhef" value="dhr">
+                  <label for="part">Mrs.</label>
+                  <input type="radio" id="Mevr" name="aanhef" value="Mevr.">
+            </div>
+
+            <div class="form-group">
+                <label for="naam">Name:</label>
+                <input type="text" name="naam" placeholder="Firts name">
+                <input type="text" name="tussenv" placeholder="between.">
+                <input type="text" name="achternaam" placeholder="Last name">
+            </div>
+            
+            <div class="form-group">
+                <label for="postcode">Zip Code:</label>
+                <input type="text" name="postcode" placeholder="1234AB">
+            </div>
+            
+            <div class="form-group">
+                <label for="Huisnummer">House Number:</label>
+                <input type="text" name="Huisnummer" placeholder="Nr.">
+                <input type="text" name="toev" placeholder="Betw.">
+            </div>
+            <div class="form-group">
+                <form action="/action_page.php">
+                <label for="land">Country:</label>
+                    <select id="landen" name="landen">
+                      <option value="NL">Netherlands</option>
+                      <option value="BE">Belgium</option>
+                      <option value="DE">Germany</option>
+                      <option value="FR">France</option>
+                      <option value="UK">United Kingdom</option>
+                      <option value="ES">Spain</option>
+                    </select>                  
+                </form>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" name="email" placeholder="Email...">
+            </div>
+            
+            <div class="form-group">
+                <label for="telefoon">Phone Number:</label>
+                <input type="tel" name="telefoon" placeholder="06-12345678">
+            </div>
+
+            <div class="form-group">
+                <label for="geboorte">Date of Birth:</label>
+                <input type="date" name="Geboortedatum" placeholder="">
+            </div>
+
+        </div>
+        <div id="shoppingCart">
+            <h2>Your cart total</h2>
+            <p>€ 52.72</p>
+            <input type="submit" value="Proceed to checkout">
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-left">
+            <p>RodysGameShop</p>
+            <p>@ copyright Rody Stockshen</p>
+        </div>
+        <div class="footer-center">
+            <p>Need help?</p>
+            <img src="/Week 3 WEB/Workshop 2/img/customerServiceLogo-removebg-preview.png" alt="CustomerServiceLogo" id="customerlogo">
+        </div>
+        <div class="footer-right">
+            <p>Stay in touch! Join our newsletter.</p>
+            <input type="text" placeholder="Email...">
+            <button type="submit">Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>
