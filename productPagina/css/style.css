@@ -1,0 +1,308 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    margin: 0; 
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #212121;
+    border-bottom: 2px solid #494949;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+/* Header Logo */
+#headerlogo {
+    max-height: 80px; 
+    width: auto;
+    position: static;
+    margin-right: auto;
+}
+
+/* Zoekbalk styling */
+header input[type="text"] {
+    flex-grow: 1;
+    max-width: 920px;
+    min-width: 200px;
+    height: 30px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px auto;
+}
+
+/* Zoekknop styling */
+header button {
+    background-color: #477bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+header button:hover {
+    background-color: #9e60ec;
+}
+
+/* Zorg ervoor dat de afbeelding klikbaar blijft */
+a img {
+    border: none;
+    display: block;
+}
+
+a:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Navigatie */
+nav {
+    background-color:  #212121;
+    height: 45px;
+    margin-bottom: 4px;
+    text-align: left;
+    padding-left: 80px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+/* container*/
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    gap: 40px;
+}
+
+#product-images {
+    flex: 1;
+    max-width: 600px;
+}
+
+#product-main-images {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+#product-small-images {
+    display: flex;
+    gap: 10px;
+}
+
+#product-small-images div {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#product-interaction {
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#product-name {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+#product-review-rate {
+    font-size: 20px;
+    color: #888;
+}
+
+#product-price {
+    font-size: 50px;
+    font-weight: bold;
+    color: #222;
+}
+
+#product-price span {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+#product-code {
+    color: #888;
+}
+
+#product-code,
+#product-quantity,
+#product-categorie {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 20px;
+}
+
+#product-code select,
+#product-quantity input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 17px;
+}
+
+button {
+    background-color: #29a9ff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+    height: 55px;
+}
+
+#product-description {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+/* Footer */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px 20px;
+    background-color: #212121;
+    color: white;
+    width: 98%;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* Footer tekst */
+footer p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* Nieuwsbrief container */
+.subscribe-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Nieuwsbrief invoerveld */
+footer input[type="text"] {
+    width: 250px;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #416aff;
+    font-size: 14px;
+}
+
+/* Subscribe-knop */
+footer button {
+    padding: 10px 20px;
+    background-color: #416aff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+footer button:hover {
+    background-color: #9e60ec;
+}
+
+/* Klantenlogo */
+#customerlogo {
+    max-height: 70px; 
+}
+
+/* Invoervelden */
+input {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #headerlogo {
+        margin-bottom: 10px;
+    }
+
+    header input[type="text"] {
+        width: 90%;
+        margin: 5px 0;
+    }
+
+    nav {
+        padding-left: 20px;
+        text-align: center;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-right {
+        align-items: center;
+        text-align: center;
+    }
+}

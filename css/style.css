@@ -222,6 +222,36 @@ nav a {
     margin: 0;
 }
 
+#filter-container {
+    width: 250px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+    color: #ffffff;
+    background: #212121;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+select, button {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
 /* Footer */
 footer {
     display: flex;
