@@ -5,7 +5,7 @@
         </div>
         <div class="footer-center">
             <p>Need help?</p>
-            <img src="/rodygamestore/img/customerServiceLogo-removebg-preview.png" alt="CustomerServiceLogo" id="customerlogo">
+            <img src="/img/customerServiceLogo-removebg-preview.png" alt="CustomerServiceLogo" id="customerlogo">
         </div>
         <div class="footer-right">
             <p>Stay in touch! Join our newsletter.</p>

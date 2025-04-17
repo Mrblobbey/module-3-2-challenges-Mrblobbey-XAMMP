@@ -1,86 +1,103 @@
 <?php
-    include '../includes/header.php';
-    include '../includes/nav.php';
+include '../includes/header.php';
+include '../includes/nav.php';
+include '../includes/productArray.php';
 ?>
 
-    <div id="container">
+<div id="container">
+    <form method="post" action="../bedanktPagina/index.php">
         <div id="orderFrom">
-            <h1>Your Details</h1>
-            <h2>What should appear on the invoice? </h2>
-            
+            <h1>Jouw gegevens</h1>
+            <h2>Wat moet er op de factuur staan?</h2>
+
             <div class="form-group">
-                <label for="type">Order Type</label>
-                  <label for="part">Private</label>
-                  <input type="radio" id="part" name="typebestelling" value="part">
-                  <label for="zak">Business</label>
-                  <input type="radio" id="zak" name="typebestelling" value="zak">
+                <label>Bestel type</label><br>
+                <label><input type="radio" name="typebestelling" value="part"> Prive</label>
+                <label><input type="radio" name="typebestelling" value="zak"> Zakelijk</label>
             </div>
 
             <div class="form-group">
-                <label for="type">Salutation:</label>
-                  <label for="dhr">Mr.</label>
-                  <input type="radio" id="dhr" name="aanhef" value="dhr">
-                  <label for="part">Mrs.</label>
-                  <input type="radio" id="Mevr" name="aanhef" value="Mevr.">
+                <label>Aanhef</label><br>
+                <label><input type="radio" name="aanhef" value="Dhr."> Dhr.</label>
+                <label><input type="radio" name="aanhef" value="Mevr."> Mevr.</label>
             </div>
 
             <div class="form-group">
-                <label for="naam">Name:</label>
-                <input type="text" name="naam" placeholder="Firts name">
-                <input type="text" name="tussenv" placeholder="between.">
-                <input type="text" name="achternaam" placeholder="Last name">
+                <label>Naam:</label>
+                <input type="text" name="naam" placeholder="Voornaam">
+                <input type="text" name="tussenv" placeholder="Tussenvoegsel">
+                <input type="text" name="achternaam" placeholder="Achternaam">
             </div>
-            
+
             <div class="form-group">
-                <label for="postcode">Zip Code:</label>
+                <label>Postcode:</label>
                 <input type="text" name="postcode" placeholder="1234AB">
             </div>
-            
+
             <div class="form-group">
-                <label for="Huisnummer">House Number:</label>
+                <label>Huisnummer:</label>
                 <input type="text" name="Huisnummer" placeholder="Nr.">
-                <input type="text" name="toev" placeholder="Betw.">
+                <input type="text" name="toev" placeholder="Toev.">
             </div>
+
             <div class="form-group">
-                <form action="/action_page.php">
-                <label for="land">Country:</label>
-                    <select id="landen" name="landen">
-                      <option value="NL">Netherlands</option>
-                      <option value="BE">Belgium</option>
-                      <option value="DE">Germany</option>
-                      <option value="FR">France</option>
-                      <option value="UK">United Kingdom</option>
-                      <option value="ES">Spain</option>
-                    </select>                  
-                </form>
+                <label>Land:</label>
+                <select name="landen">
+                    <option value="NL">Nederland</option>
+                    <option value="BE">Belgie</option>
+                    <option value="DE">Duitsland</option>
+                    <option value="FR">Frankrijk</option>
+                    <option value="UK">Engeland</option>
+                    <option value="ES">Spanje</option>
+                </select>
             </div>
+
             <div class="form-group">
-                <label for="email">Email Address:</label>
+                <label>Email:</label>
                 <input type="email" name="email" placeholder="Email...">
             </div>
-            
+
             <div class="form-group">
-                <label for="telefoon">Phone Number:</label>
+                <label>Telefoonnummer:</label>
                 <input type="tel" name="telefoon" placeholder="06-12345678">
             </div>
 
             <div class="form-group">
-                <label for="geboorte">Date of Birth:</label>
-                <input type="date" name="Geboortedatum" placeholder="">
+                <label>Geboortedatum:</label>
+                <input type="date" name="Geboortedatum">
             </div>
 
+            
+            <div class="form-group">
+                <button type="submit" class="checkout-button">Bestelling plaatsen</button>
+            </div>
         </div>
-        <div id="shoppingCart">
-            <h2>Your cart total</h2>
-            <p>€ 52.72</p>
-            <a href="../bedanktPagina/index.php" class="checkout-button">Proceed to checkout</a>
-        </div>
+    </form>
+    <div id="shoppingCart">
+        <h2>Winkelwagen totaal:</h2>
+        <?php
+        $total = 0;
+        if (!empty($_SESSION['cart'])) {
+            echo "<ul>";
+            foreach ($_SESSION['cart'] as $product_id => $quantity) {
+                foreach ($products as $product) {
+                    if ($product['ProductID'] === $product_id) {
+                        $prijs = $product['sale'] === 'true' ? $product['salePrice'] : $product['price'];
+                        $totaal_prijs = $prijs * $quantity;
+                        $total += $totaal_prijs;
 
+                        echo "<li>{$product['name']} x {$quantity} - €" . number_format($totaal_prijs, 2) . "</li>";
+                        break;
+                    }
+                }
+            }
+            echo "</ul>";
+            echo "<p><strong>Totaal: €" . number_format($total, 2) . " incl 21% BTW</strong></p>";
+        } else {
+            echo "<p>Je winkelwagen is leeg.</p>";
+        }
+        ?>
     </div>
+</div>
 
-    <?php
-    include '../includes/footer.php';
-    ?>
-
-</body>
-</html>
+<?php include '../includes/footer.php'; ?>

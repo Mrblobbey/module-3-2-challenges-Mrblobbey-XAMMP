@@ -1,44 +1,45 @@
-body { 
+body {
     font-family: Arial, sans-serif;
     background-color: #0c0c0c;
     text-align: center;
     margin: 0; 
     padding: 0;
 }
+
+/* Header */
 header {
     background-color: #212121;
-    height: 80px;
     border-bottom: 2px solid #494949;
-    padding-top: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
 }
- 
+
+/* Header Logo */
 #headerlogo {
     max-height: 80px; 
     width: auto;
-    position: absolute;
-    top: 2px;
-    left: 80px;
-}
-a img {
-    border: none;
-    display: block;
+    position: static;
+    margin-right: auto;
 }
 
-a:hover img {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
+/* Zoekbalk styling */
 header input[type="text"] {
-    width: 920px; 
+    flex-grow: 1;
+    max-width: 920px;
+    min-width: 200px;
     height: 30px;
     padding: 8px 12px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-top: 10px;
+    margin: 10px auto;
 }
 
+/* Zoekknop styling */
 header button {
     background-color: #477bff;
     color: white;
@@ -50,18 +51,101 @@ header button {
 }
 
 header button:hover {
-    background-color: #9e60ec;
-    left: 10px;
-    top: 0px;
+    background-color: #29A9FF;
+}
+/* shopping cart */
+.cart-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
+#cart-button {
+    background: none;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+#cart-button img {
+    width: 40px;
+}
+
+.cart-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+.cart-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: #fff;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    z-index: 10;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+.cart-wrapper:hover .cart-dropdown {
+    display: block;
+}
+
+.cart-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.cart-dropdown li {
+    margin-bottom: 8px;
+}
+
+.cart-button {
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Zorg ervoor dat de afbeelding klikbaar blijft */
+a img {
+    border: none;
+    display: block;
+}
+
+a:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Navigatie */
 nav {
     background-color:  #212121;
     height: 45px;
-    margin-bottom: 20px;
+    margin-bottom: 4px;
     text-align: left;
     padding-left: 80px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
@@ -82,6 +166,23 @@ nav a {
     width: 100%; 
     margin-bottom: 20px;
     color: #FFFFFF;
+
+}
+
+
+
+.checkout-button {
+    padding: 10px 20px;  
+    background-color: #416aff;  
+    color: white;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;  
+}
+
+.checkout-button:hover {
+    background-color: #53a64c;  
 }
 
 label {
@@ -142,7 +243,7 @@ input[type="submit"]:hover {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
-    height: 150px;
+    padding-bottom: 40px;
 }
 
 footer {
@@ -211,7 +312,7 @@ footer button {
 }
 
 footer button:hover {
-    background-color: #9e60ec;  
+    background-color: #29A9FF;  
 }
 
 #customerlogo {

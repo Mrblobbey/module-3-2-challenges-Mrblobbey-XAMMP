@@ -1,10 +1,14 @@
 <?php
-    include 'includes/productArray.php';
     include 'includes/header.php';
+    include 'includes/productArray.php';
     include 'includes/nav.php';
+
 ?>
 
-<body>
+
+s
+
+
     <section class="hero">
         <div class="hero-video-wrapper">
             <iframe 
