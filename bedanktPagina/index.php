@@ -1,16 +1,15 @@
+<!-- Het inladen van de Header & nav & productArray -->
 <?php
 include '../includes/productArray.php';
 include '../includes/header.php';
 include '../includes/nav.php';
 ?>
-
-
-
+<!-- container bedankt pagina -->
 <div class="container">
     <div class="popup">
         <img src="/img/vinkje.png" alt="Checkmark">
         <h2>Bedankt voor je bestelling!</h2>
-        <p>Hier naast  vind je een overzicht van je bestelling en aflevergegevens.</p>
+        <p>Hier naast vind je een overzicht van je bestelling en aflevergegevens.</p>
     </div>
 
     <div class="summary">
@@ -21,6 +20,7 @@ include '../includes/nav.php';
                 <th>Aantal</th>
                 <th>Prijs</th>
             </tr>
+            <!-- winkelwagen -->
             <?php
             $totaal = 0;
             if (!empty($_SESSION['cart'])) {
@@ -59,7 +59,7 @@ include '../includes/nav.php';
             ?>
         </table>
     </div>
-
+    <!-- Samenvatting fomulier van bestelpagina -->
     <div class="delivery-info">
         <h3>Afleveradres</h3>
         <p>
@@ -87,7 +87,7 @@ include '../includes/nav.php';
         </p>
     </div>
 </div>
-
+<!-- het in laden van de footer -->
 <?php
 include '../includes/footer.php';
 ?>

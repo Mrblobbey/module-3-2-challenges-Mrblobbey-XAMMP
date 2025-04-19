@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Toevoegen aan winkelmand via AJAX (optioneel als je dit nog niet had)
+    // Toevoegen aan winkelmand 
     const addToCartForm = document.getElementById("add-to-cart-form");
     if (addToCartForm) {
         addToCartForm.addEventListener("submit", function (e) {

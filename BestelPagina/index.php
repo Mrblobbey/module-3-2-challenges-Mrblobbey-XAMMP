@@ -1,9 +1,11 @@
+<!-- Het inladen van de Header & nav & productArray -->
 <?php
 include '../includes/header.php';
 include '../includes/nav.php';
 include '../includes/productArray.php';
 ?>
 
+<!-- formulier ( verzonden wordt naar bedankt samenvatting) -->
 <div id="container">
     <form method="post" action="../bedanktPagina/index.php">
         <div id="orderFrom">
@@ -67,12 +69,13 @@ include '../includes/productArray.php';
                 <input type="date" name="Geboortedatum">
             </div>
 
-            
+
             <div class="form-group">
                 <button type="submit" class="checkout-button">Bestelling plaatsen</button>
             </div>
         </div>
     </form>
+    <!-- winkelwagen -->
     <div id="shoppingCart">
         <h2>Winkelwagen totaal:</h2>
         <?php

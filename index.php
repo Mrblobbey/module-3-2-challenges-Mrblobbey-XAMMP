@@ -1,55 +1,47 @@
+<!-- Het inladen van de Header & nav & productArray -->
 <?php
-    include 'includes/header.php';
-    include 'includes/productArray.php';
-    include 'includes/nav.php';
-
+include 'includes/header.php';
+include 'includes/productArray.php';
+include 'includes/nav.php';
 ?>
-
-
-s
-
-
-    <section class="hero">
-        <div class="hero-video-wrapper">
-            <iframe 
-                id="heroVideo"
-                src="https://www.youtube.com/embed/pBM2xyco_Kg?autoplay=1&mute=1&loop=1&playlist=pBM2xyco_Kg"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-            ></iframe>
-            <div class="hero-overlay"></div> <!-- Donkere overlay -->
-        </div>
-        <div class="hero-content">
-            <h1>RodysGameShop</h1>
-            <p>Welcome to best GameShop around</p>
-        </div>
-    </section>    
-    
-    
-    <section class="titlemain">
-        <h2>Games </h2>
-    </section>
-    
-    <section class="products">
-        <?php
-        foreach($products as $index => $product){
-            ?>
-            <a href="./productPagina/index.php?id=<?php echo $index; ?>" class="product">
-                <div class="product-image">
-                    <img src="<?php echo $product['image'] ?>" alt="productImage">
-                </div>
-                <div class="product-info">
-                    <h2><?php echo $product['name'] ?></h2>
-                    <p class="price">&euro; <?php echo $product['price'] ?> </p>
-                </div>
-            </a>
-            <?php
-        }
+<!-- Hero actie video  -->
+<section class="hero">
+    <div class="hero-video-wrapper">
+        <iframe id="heroVideo"
+            src="https://www.youtube.com/embed/pBM2xyco_Kg?autoplay=1&mute=1&loop=1&playlist=pBM2xyco_Kg"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="hero-overlay"></div> <!-- Donkere overlay -->
+    </div>
+    <div class="hero-content">
+        <h1>RodysGameShop</h1>
+        <p>Welcome to best GameShop around</p>
+    </div>
+</section>
+<!-- Titel games -->
+<section class="titlemain">
+    <h2>Games </h2>
+</section>
+<!-- Producten container  -->
+<section class="products">
+    <?php
+    foreach ($products as $index => $product) {
         ?>
+        <a href="./productPagina/index.php?id=<?php echo $index; ?>" class="product">
+            <div class="product-image">
+                <img src="<?php echo $product['image'] ?>" alt="productImage">
+            </div>
+            <div class="product-info">
+                <h2><?php echo $product['name'] ?></h2>
+                <p class="price">&euro; <?php echo $product['price'] ?> </p>
+            </div>
+        </a>
+        <?php
+    }
+    ?>
+
+    <!-- Product fitler -->
     <div id="filter-container">
         <h3>Filter producten</h3>
-
 
         <div class="filter-section">
             <label for="priceRange">Maximale prijs: <span id="priceValue">€90</span></label>
@@ -67,16 +59,13 @@ s
             </select>
         </div>
 
-
         <div class="filter-section">
             <button type="submit">Toon resultaten</button>
         </div>
     </div>
-
-            
-        </section>
-    </body>
-    
-    <?php
-    include 'includes/footer.php';
-    ?>
+</section>
+</body>
+<!-- Het inladen van footer content -->
+<?php
+include 'includes/footer.php';
+?>

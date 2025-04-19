@@ -16,6 +16,7 @@
         <img src="/img/logoRodysGame.png" alt="homeLogo" id="headerlogo">
     </a>
     <input type="text" placeholder="Search..">
+    <!-- winkelwagen  -->
         <?php session_start(); ?>
     <div class="cart-wrapper">
         <button id="cart-button">
