@@ -48,3 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+function openPopup(title, content) {
+    document.getElementById('popupTitle').textContent = title;
+    document.getElementById('popupContent').textContent = content;
+    // eventueel: document.getElementById('popupContent').textContent = content;
+    document.getElementById('blogPopup').style.display = 'block';
+    
+}
+
+function closePopup() {
+    document.getElementById('blogPopup').style.display = 'none';
+}

@@ -3,7 +3,7 @@
 $host = 'localhost';            // of je servernaam
 $db   = 'webshop';              // ✅ dit moet exact de naam van je database zijn
 $user = 'root';                 // of jouw gebruikersnaam
-$pass = '';                     // vaak leeg bij lokale omgeving (bijv. XAMPP)
+$pass = '';                     // moet veranderder worden ivm met onveilig php my admin 
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);

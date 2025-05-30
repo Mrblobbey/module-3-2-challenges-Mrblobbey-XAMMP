@@ -1,13 +1,23 @@
 <!-- Het inladen van de Header & nav & productArray -->
 <?php
-include '../includes/productArray.php';
 include '../includes/header.php';
 include '../includes/nav.php';
+include '../includes/db.php';
+include '../includes/config.php';
+
+$products = [];
+if (!empty($_SESSION['cart'])) {
+    $productIds = array_keys($_SESSION['cart']);
+    $placeholders = implode(',', array_fill(0, count($productIds), '?'));
+    $stmt = $pdo->prepare("SELECT * FROM products WHERE productID IN ($placeholders)");
+    $stmt->execute($productIds);
+    $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 ?>
 <!-- container bedankt pagina -->
 <div class="container">
     <div class="popup">
-        <img src="/img/vinkje.png" alt="Checkmark">
+        <img src="<?= $base_url ?>/img/vinkje.png" alt="Checkmark">
         <h2>Bedankt voor je bestelling!</h2>
         <p>Hier naast vind je een overzicht van je bestelling en aflevergegevens.</p>
     </div>
@@ -22,39 +32,32 @@ include '../includes/nav.php';
             </tr>
             <!-- winkelwagen -->
             <?php
-            $totaal = 0;
-            if (!empty($_SESSION['cart'])) {
-                foreach ($_SESSION['cart'] as $productId => $aantal) {
-                    // Zoek het product in de productarray
-                    $gevondenProduct = null;
-                    foreach ($products as $product) {
-                        if ($product['ProductID'] === $productId) {
-                            $gevondenProduct = $product;
-                            break;
-                        }
-                    }
 
-                    if ($gevondenProduct) {
-                        $prijs = $gevondenProduct['sale'] === 'true' ? $gevondenProduct['salePrice'] : $gevondenProduct['price'];
-                        $subtotaal = $prijs * $aantal;
-                        $totaal += $subtotaal;
-                        echo "<tr>
-                                <td>{$gevondenProduct['name']}</td>
-                                <td>$aantal</td>
-                                <td>€ " . number_format($subtotaal, 2, ',', '.') . "</td>
-                              </tr>";
-                    } else {
-                        echo "<tr>
-                                <td colspan='3'>Product met ID $productId niet gevonden.</td>
-                              </tr>";
+            $totaal = 0;
+            
+            foreach ($_SESSION['cart'] as $productId => $aantal) {
+                $gevondenProduct = null;
+                foreach ($products as $product) {
+                    if ($product['productID'] == $productId) {
+                        $gevondenProduct = $product;
+                        break;
                     }
                 }
-                echo "<tr>
-                        <td colspan='2'><strong>Totaal incl 21% BTW</strong></td>
-                        <td><strong>€ " . number_format($totaal, 2, ',', '.') . "</strong></td>
-                      </tr>";
-            } else {
-                echo "<tr><td colspan='3'>Geen producten in winkelmand.</td></tr>";
+
+                if ($gevondenProduct) {
+                    $prijs = (!empty($gevondenProduct['product_sale']) && $gevondenProduct['product_sale'] > 0)
+                        ? $gevondenProduct['product_sale']
+                        : $gevondenProduct['product_price'];
+                    $subtotaal = $prijs * $aantal;
+                    $totaal += $subtotaal;
+                    echo "<tr>
+                            <td>{$gevondenProduct['product_name']}</td>
+                            <td>$aantal</td>
+                            <td>€ " . number_format($subtotaal, 2, ',', '.') . "</td>
+                        </tr>";
+                } else {
+                    echo "<tr><td colspan='3'>Product met ID $productId niet gevonden.</td></tr>";
+                }
             }
             ?>
         </table>

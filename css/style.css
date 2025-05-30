@@ -250,7 +250,7 @@ nav a {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
 }
 
 /* Stijl het product */
@@ -412,6 +412,90 @@ input {
     margin: 10px auto;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+/* blog */
+.blog-grid {
+    padding: 40px 20px;
+    background-color: #212121;
+    text-align: center;
+    width: 100%;
+}
+
+.blog-section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.blog-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.blog-card {
+    background-color: #1a1818;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    width: 360px;       /* 20% breder dan 300px */
+    height: 480px;      /* 33% hoger dan 360px */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+
+.blog-card:hover {
+    transform: scale(1.05);
+}
+
+
+.blog-card-img {
+    height: 80%;
+    width: 100%;
+    object-fit: cover;
+}
+.blog-card-title {
+    height: 20%;
+    padding: 12px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.popup-content {
+    background-color: white;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 /* Responsive Fixes */

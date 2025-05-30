@@ -2,7 +2,6 @@
 <?php
 include '../includes/header.php';
 include '../includes/nav.php';
-include '../includes/productArray.php';
 ?>
 
 <!-- formulier ( verzonden wordt naar bedankt samenvatting) -->
@@ -84,12 +83,13 @@ include '../includes/productArray.php';
             echo "<ul>";
             foreach ($_SESSION['cart'] as $product_id => $quantity) {
                 foreach ($products as $product) {
-                    if ($product['ProductID'] === $product_id) {
-                        $prijs = $product['sale'] === 'true' ? $product['salePrice'] : $product['price'];
+                    if ($product['productID'] === $product_id) {
+                       $prijs = !empty($product['product_sale']) ? $product['product_sale'] : $product['product_price'];
                         $totaal_prijs = $prijs * $quantity;
                         $total += $totaal_prijs;
 
-                        echo "<li>{$product['name']} x {$quantity} - €" . number_format($totaal_prijs, 2) . "</li>";
+                        echo "<li>{$product['product_name']} x {$quantity} - €" . number_format($totaal_prijs, 2) . "</li>";
+
                         break;
                     }
                 }
