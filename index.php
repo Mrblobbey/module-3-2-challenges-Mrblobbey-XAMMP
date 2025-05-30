@@ -1,8 +1,12 @@
-<!-- Het inladen van de Header & nav & productArray -->
+<!-- Het inladen van de Header & nav & producten uit de database -->
 <?php
 include 'includes/header.php';
-include 'includes/productArray.php';
+include 'includes/db.php';  // verbinding met database
 include 'includes/nav.php';
+
+$stmt = $pdo->prepare("SELECT * FROM products");
+$stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!-- Hero actie video  -->
 <section class="hero">
@@ -23,23 +27,20 @@ include 'includes/nav.php';
 </section>
 <!-- Producten container  -->
 <section class="products">
-    <?php
-    foreach ($products as $index => $product) {
-        ?>
-        <a href="./productPagina/index.php?id=<?php echo $index; ?>" class="product">
+    <?php foreach ($products as $product): ?>
+        <a href="./productPagina/index.php?id=<?php echo $product['productID']; ?>" class="product">
             <div class="product-image">
-                <img src="<?php echo $product['image'] ?>" alt="productImage">
+                <!-- Als je geen image in database hebt, tijdelijk placeholder gebruiken -->
+                <img src="<?php echo $product['image']; ?>" alt="productImage">
             </div>
             <div class="product-info">
-                <h2><?php echo $product['name'] ?></h2>
-                <p class="price">&euro; <?php echo $product['price'] ?> </p>
+                <h2><?php echo $product['product_name']; ?></h2>
+                <p class="price">&euro; <?php echo $product['product_price']; ?> </p>
             </div>
         </a>
-        <?php
-    }
-    ?>
+    <?php endforeach; ?>
 
-    <!-- Product fitler -->
+    <!-- Product filter -->
     <div id="filter-container">
         <h3>Filter producten</h3>
 
