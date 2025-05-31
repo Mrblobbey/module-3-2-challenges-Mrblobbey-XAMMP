@@ -67,7 +67,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
         <?php endforeach; ?>
 
-    
+        <!-- blog container  -->
        <section class="blog-grid">
             <h2 class="blog-section-title">Laatste Blogs</h2>
             <div class="blog-row">
@@ -86,7 +86,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </section>
 
-        <!-- Popup -->
+        <!-- Popup blog tekst  -->
         <div id="blogPopup" class="popup">
             <div class="popup-content">
                 <span class="close-btn" onclick="closePopup()">&times;</span>

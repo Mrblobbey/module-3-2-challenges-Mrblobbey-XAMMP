@@ -10,7 +10,7 @@ include '../includes/db.php';
 </head>
 <body>
 
-  <!-- ✅ PRODUCTBEHEER -->
+  <!--  PRODUCTBEHEER -->
   <header class="cms-header">
     <h1>Productbeheer</h1>
     <a href="add.php" class="btn primary">+ Nieuw product</a>
@@ -58,7 +58,7 @@ include '../includes/db.php';
     </table>
   </main>
 
-  <!-- ✅ BLOGBEHEER -->
+  <!-- BLOGBEHEER -->
 <header class="cms-header" style="margin-top: 60px;">
   <h1>Blogbeheer</h1>
   <a href="blog_add.php" class="btn primary">+ Nieuwe blog</a>

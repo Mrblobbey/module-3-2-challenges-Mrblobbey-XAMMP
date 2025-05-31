@@ -54,7 +54,7 @@ if (!$product) {
 </script>
 
 <body>
-    <!-- ✅ Succesmelding -->
+    <!-- controle Succesmelding -->
     <?php if (isset($_GET['added'])): ?>
         <div style="text-align: center; margin: 20px; color: green;">
             ✅ Product toegevoegd aan winkelwagen!
@@ -73,7 +73,7 @@ if (!$product) {
                      style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
-            <!-- Kleine thumbnails (3x dezelfde als voorbeeld) -->
+            <!-- Kleine thumbnails (3x dezelfde als invulling ivm met missend data) -->
             <div id="product-small-images">
                 <?php for ($i = 0; $i < 3; $i++): ?>
                     <div>
@@ -102,7 +102,7 @@ if (!$product) {
                 </select>
             </div>
 
-            <!-- 🛒 Winkelwagen formulier -->
+            <!--  Winkelwagen formulier -->
             <form id="add-to-cart-form" method="post">
                 <input type="hidden" name="product_id" value="<?php echo $product['productID']; ?>">
                 <input type="hidden" name="quantity" value="1">

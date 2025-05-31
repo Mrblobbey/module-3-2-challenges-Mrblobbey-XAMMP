@@ -4,7 +4,7 @@ include_once __DIR__ . '/includes/db.php';
 include_once __DIR__ . '/includes/header.php';
 include_once __DIR__ . '/includes/nav.php';
 
-// ✅ Verwijderen van product uit winkelwagen direct hier afhandelen
+//  Verwijderen van product uit winkelwagen #broken
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_product_id'])) {
     $remove_id = $_POST['remove_product_id'];
     unset($_SESSION['cart'][$remove_id]);
@@ -46,7 +46,7 @@ if (!empty($cart)) {
                 $id = $product['productID'];
                 $qty = $cart[$id];
 
-                // ✅ Prijsberekening met veilige fallback
+                //  Prijsberekening 
                 $prijs = (floatval($product['product_sale']) > 0)
                     ? floatval($product['product_sale'])
                     : floatval($product['product_price']);
